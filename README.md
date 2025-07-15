@@ -1,11 +1,12 @@
 
 # Srchive: A Semantic Search Engine for ArXiv
 
-[Website]()
+[Website](https://srchive.streamlit.app/)
 
 **Srchive** is an intelligent search engine that allows users to perform semantic, natural language queries across a database of over 30,000 recent and classic research papers from ArXiv. Built with a modern data stack, it leverages vector embeddings to understand the *meaning* behind a query, not just keywords.
 
 -----
+![alt text](image.png)
 
 ## 🚀 Features
 
@@ -29,7 +30,7 @@ flowchart TD
         B -->|Fetch Classic Papers| D[Semantic Scholar API];
         B -->|Generate Embeddings| E[Sentence Transformers];
         E -->|Store Vectors| F[Pinecone DB];
-        B -->|Store Metadata| G[MongoDB Atlas];
+        B -->|Store Metadata| G[MongoDB];
     end
 
     subgraph "Streamlit Application (Live)"
@@ -58,8 +59,8 @@ To run this project on your local machine, follow these steps.
 ### 1\. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/ap-aditya/srchive
+cd srchive
 ```
 
 ### 2\. Set Up Environment Variables
@@ -142,12 +143,6 @@ Contributions are welcome\! If you have suggestions for improvements or new feat
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
 4.  Push to the branch (`git push origin feature/AmazingFeature`).
 5.  Open a Pull Request.
-
------
-
-## 📜 License
-
-This project is distributed under the MIT License. See the `LICENSE` file for more information.
 
 -----
 
