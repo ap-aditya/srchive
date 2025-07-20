@@ -10,16 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          
+      - name: Install uv
+        run: |
+          pip install uv
+          
       - name: Install dependencies
-        run: pip install uv
-             uv sync
+        run: |
+          uv sync
+          
       - name: Run ingestion
         env:
           PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
           MONGO_URI: ${{ secrets.MONGO_URI }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python ingest_data.py
+        run: uv run python ingest_data.py
